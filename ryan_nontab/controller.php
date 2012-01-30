@@ -3,8 +3,8 @@ defined('C5_EXECUTE') or die(_("Access Denied."));
 class RyanNontabPackage extends Package {
 
 	protected $pkgHandle = 'ryan_nontab';
-	protected $appVersionRequired = '5.3.3';
-	protected $pkgVersion = '1.0';
+	protected $appVersionRequired = '5.5';
+	protected $pkgVersion = '1.1';
 	
 	public function getPackageDescription() {
 		return t("Runs scheduled jobs without using crontab.");
