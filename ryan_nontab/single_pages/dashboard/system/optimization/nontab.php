@@ -6,7 +6,7 @@
 	<div class="clearfix">
 		<div class="input">
 		<ul class="inputs-list">
-			<label><?php echo $form->checkbox('NONTAB_ENABLED', 1, $nontab_enabled)?> <span><?php echo t('Enabled')?></span></label>
+			<li><label><?php echo $form->checkbox('NONTAB_ENABLED', 1, $nontab_enabled)?> <span><?php echo t('Enabled')?></span></label></li>
 		</ul>
 		</div>
 	</div>	

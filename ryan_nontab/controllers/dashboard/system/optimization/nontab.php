@@ -1,6 +1,6 @@
 <?php 
 defined('C5_EXECUTE') or die(_("Access Denied."));
-class DashboardNontabController extends Controller {
+class DashboardSystemOptimizationNontabController extends Controller {
 	public $helpers = array("form", 'concrete/interface');
 	
 	

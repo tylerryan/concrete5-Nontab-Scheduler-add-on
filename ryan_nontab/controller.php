@@ -1,5 +1,8 @@
-<?php    
-defined('C5_EXECUTE') or die(_("Access Denied."));
+<?php defined('C5_EXECUTE') or die(_("Access Denied."));
+/**
+ * @author rtyler concrete5.org/profile/-/9
+ *
+ */
 class RyanNontabPackage extends Package {
 
 	protected $pkgHandle = 'ryan_nontab';
@@ -27,9 +30,24 @@ class RyanNontabPackage extends Package {
 		
 		Loader::model('single_page');
 		// add page for configuration
-		$dp = SinglePage::add('/dashboard/nontab', $pkg);
+		$dp = SinglePage::add('dashboard/system/optimization/nontab', $pkg);
 		$dp->update(array('cName'=>t("Nontab Scheduler"), 'cDescription'=>t("Nontab Schedule Settings")));
 	}
+	
+	public function upgrade() {
+		$pkg = Package::getByHandle($this->pkgHandle);
+		parent::upgrade();
+		$oldDash = Page::getByPath('/dashboard/nontab');
+		if($oldDash instanceof Page && $oldDash->getCollectionID()) {
+			$oldDash->delete();
+		}
+	
+		Loader::model('single_page');
+		// add page for configuration
+		$dp = SinglePage::add('dashboard/system/optimization/nontab', $pkg);
+		$dp->update(array('cName'=>t("Nontab Scheduler"), 'cDescription'=>t("Nontab Schedule Settings")));
+	}
+	
 	
 	public function on_start() {  
 		$pkg = Package::getByHandle($this->pkgHandle);
